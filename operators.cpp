@@ -23,36 +23,60 @@ int main()
     // Declare variables for user inputs
     string seedColor = "";
     int soilTemp = 0;
-    string soilHumidity = "";
 
     // Prompt user for inputs
     cout << "What is the seed color?\n";
     cin >> seedColor;
+
+    // Check for proper input for seedColor
+    if (seedColor != "red" && seedColor != "blue") {
+        cout << "Invalid seed color selected.";
+        return 1;
+    }
+
     cout << "What is the soil temperature?\n";
     cin >> soilTemp;
-    cout << "What is the soil humidity?\n";
-    cin >> soilHumidity;
 
     // Logic based on user inputs
     if (seedColor == "red") {
         if (soilTemp > 75) {
+            string soilHumidity = "";
+            cout << "What is the soil humidity?\n";
+            cin >> soilHumidity;
+
+            // Check for proper input for soilHumidity
+            if (soilHumidity != "wet" && soilHumidity != "dry") {
+                cout << "Invalid soil moisture selected.";
+                return 1;
+            }
+
             if (soilHumidity == "dry") {
                 cout << "It's a dandelion.\n";
             } else if (soilHumidity == "wet") {
                 cout << "It's a sunflower.\n";
             }
+
         } else {
             cout << "It's a mushroom.\n";
         }
-    }
-
-    if (seedColor == "blue") {
+    } else if (seedColor == "blue") {
         if (soilTemp >= 60 && soilTemp <= 70) {
+            string soilHumidity = "";
+            cout << "What is the soil humidity?\n";
+            cin >> soilHumidity;
+
+            // Check for proper input for soilHumidity
+            if (soilHumidity != "wet" && soilHumidity != "dry") {
+                cout << "Invalid soil moisture selected.";
+                return 1;
+            }
+
             if (soilHumidity == "dry") {
                 cout << "It's a sunflower.\n";
             } else if (soilHumidity == "wet") {
                 cout << "It's a dandelion.\n";
             }
+            
         } else {
             cout << "It's a mushroom.\n";
         }
